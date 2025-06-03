@@ -48,8 +48,9 @@ export const getTrendingMovies = async () => {
       .from(TABLE_NAME)
       .select('*')
       .order('count', { ascending: false })
-      .limit(5);
+      .limit(10);
 
+    // need this even though we have a catch  
     if (error) throw error;
 
     return data;
