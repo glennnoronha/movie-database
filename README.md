@@ -2,7 +2,14 @@
 
 A modern, responsive web application that allows users to explore the vast universe of movies. Built with React and powered by the TMDB API.
 
-![MovieVerse Screenshot](UI_Screenshot1.png)
+### Home Page
+![Home Page](public/UI_Screenshot1.png)
+
+### Search Results
+![Movies](public/UI_Screenshot2.png)
+
+### Movie Info Page
+![Movie Info Page](public/UI_Screenshot3.png)
 
 ## Features
 
