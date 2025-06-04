@@ -5,7 +5,7 @@
 
 @theme {
   --color-primary: #01051a;
-  --color-light-100: #5F5FFB;
+  --color-light-100: #5f5ffb;
   --color-light-200: #89b2f7;
   --color-gray-100: #9ca4ab;
   --color-dark-100: #0f0d23;
@@ -63,7 +63,7 @@
     }
 
     & ul li p {
-      @apply fancy-text mt-[22px] text-nowrap ;
+      @apply fancy-text mt-[22px] text-nowrap;
     }
 
     & ul li img {
@@ -96,10 +96,14 @@
   }
 
   .movie-card {
-    @apply bg-[#030e24] p-5 rounded-2xl shadow-inner shadow-light-100/10;
+    @apply bg-[#030e24] p-5 rounded-2xl shadow-inner shadow-light-100/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(50,130,255,0.3)] cursor-pointer;
 
     & img {
-      @apply rounded-lg h-auto w-full;
+      @apply rounded-lg h-auto w-full transition-transform duration-300;
+    }
+
+    &:hover img {
+      @apply scale-105;
     }
 
     & h3 {
@@ -138,7 +142,6 @@
 
 @utility text-gradient {
   @apply bg-gradient-to-r from-[#60a5fa] via-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent;
-
 }
 
 @utility fancy-text {

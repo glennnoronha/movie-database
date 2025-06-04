@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
-
   const {
     title,
     poster_path,
@@ -10,12 +9,10 @@ const MovieCard = ({ movie }) => {
     original_language,
     vote_average,
     id,
-    genre_ids,
-    overview,
-  } = movie; 
+  } = movie;
 
   return (
-    <Link to={`/movie/${id}`} state={{movie}}>
+    <Link to={`/movie/${id}`} state={{ movie }}>
       <div className="movie-card">
         {poster_path ? (
           <img
@@ -23,7 +20,10 @@ const MovieCard = ({ movie }) => {
             alt={title}
           />
         ) : (
-          <img src="./poster_unavailable.png" />
+          <img
+            src="./poster_unavailable.png"
+            alt={`${title} poster unavailable`}
+          />
         )}
         <div className="mt-4">
           <h3>{title}</h3>

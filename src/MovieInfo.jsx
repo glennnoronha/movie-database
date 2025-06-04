@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
@@ -17,6 +17,7 @@ export default function MovieInfo() {
   const [trailer, setTrailer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [movieDetails, setMovieDetails] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -25,10 +26,12 @@ export default function MovieInfo() {
           `${API_BASE_URL}/genre/movie/list`,
           API_OPTIONS
         );
+        if (!response.ok) throw new Error("Failed to fetch genres");
         const data = await response.json();
         setGenres(data.genres);
       } catch (error) {
         console.error("Error fetching genres:", error);
+        setError("Failed to load genres");
       }
     };
 
@@ -40,6 +43,7 @@ export default function MovieInfo() {
           `${API_BASE_URL}/movie/${movie.id}/videos`,
           API_OPTIONS
         );
+        if (!response.ok) throw new Error("Failed to fetch trailer");
         const data = await response.json();
 
         // Find the first official trailer
@@ -50,6 +54,7 @@ export default function MovieInfo() {
         setTrailer(officialTrailer);
       } catch (error) {
         console.error("Error fetching trailer:", error);
+        setError("Failed to load trailer");
       } finally {
         setIsLoading(false);
       }
@@ -63,10 +68,12 @@ export default function MovieInfo() {
           `${API_BASE_URL}/movie/${movie.id}`,
           API_OPTIONS
         );
+        if (!response.ok) throw new Error("Failed to fetch movie details");
         const data = await response.json();
         setMovieDetails(data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
+        setError("Failed to load movie details");
       }
     };
 
@@ -97,7 +104,6 @@ export default function MovieInfo() {
     release_date,
     genre_ids,
     original_language,
-    id,
   } = movie;
 
   // Get genre names from genre IDs
@@ -248,32 +254,33 @@ export default function MovieInfo() {
           </dd>
 
           {/* Budget */}
-          <dt className="font-semibold text-gray-400">Budget</dt>
-          <dd className="text-[#3282FFB3]">
-            {formatCurrency(movieDetails?.budget)}
-          </dd>
+          {movieDetails?.budget > 0 && (
+            <>
+              <dt className="font-semibold text-gray-400">Budget</dt>
+              <dd className="text-[#3282FFB3]">
+                {formatCurrency(movieDetails.budget)}
+              </dd>
+            </>
+          )}
 
           {/* Revenue */}
-          <dt className="font-semibold text-gray-400">Revenue</dt>
-          <dd className="text-[#3282FFB3]">
-            {formatCurrency(movieDetails?.revenue)}
-          </dd>
+          {movieDetails?.revenue > 0 && (
+            <>
+              <dt className="font-semibold text-gray-400">Revenue</dt>
+              <dd className="text-[#3282FFB3]">
+                {formatCurrency(movieDetails.revenue)}
+              </dd>
+            </>
+          )}
 
           {/* Production Companies */}
           {movieDetails?.production_companies?.length > 0 && (
             <>
-              <dt className="font-semibold text-gray-400">
-                Production Companies
-              </dt>
+              <dt className="font-semibold text-gray-400">Production</dt>
               <dd className="text-[#3282FFB3]">
-                {movieDetails.production_companies.map((company, index) => (
-                  <span key={company.id}>
-                    {company.name}
-                    {index < movieDetails.production_companies.length - 1
-                      ? " • "
-                      : ""}
-                  </span>
-                ))}
+                {movieDetails.production_companies
+                  .map((company) => company.name)
+                  .join(" • ")}
               </dd>
             </>
           )}
