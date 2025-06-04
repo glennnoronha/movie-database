@@ -108,10 +108,6 @@ This project uses the TMDB (The Movie Database) API to fetch movie data. You'll 
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - [TMDB](https://www.themoviedb.org/) for providing the movie data API
