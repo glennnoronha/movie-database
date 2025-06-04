@@ -21,7 +21,7 @@ function App() {
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [trendingMovies, setTrendingMovies] = useState([]);
 
-  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 600, [searchTerm]);
 
   const fetchMovies = async (query = "") => {
     setIsLoading(true);
@@ -80,14 +80,13 @@ function App() {
 
   return (
     <main>
-      <div className="pattern" />
 
       <div className="wrapper">
         <header>
-          <img src="../public/favicon.png" className="w-30" />
+          <img src="./favicon.png" className="w-30" />
           <h1>
-            Your next favorite <span className="text-gradient"> Movie </span> is
-            a click away
+            Your Next Favorite <span className="text-gradient"> Movie </span> is
+            a Click Away
           </h1>
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>

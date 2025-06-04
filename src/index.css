@@ -4,19 +4,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #030014;
-
-  --color-light-100: #cecefb;
-  --color-light-200: #b0c8f0;
-
+  --color-primary: #01051a;
+  --color-light-100: #5F5FFB;
+  --color-light-200: #89b2f7;
   --color-gray-100: #9ca4ab;
-
   --color-dark-100: #0f0d23;
-
   --font-dm-sans: DM Sans, sans-serif;
-
   --breakpoint-xs: 480px;
-
   --background-image-hero-pattern: url("/hero-bg.png");
 }
 
@@ -28,7 +22,7 @@
   }
 
   h1 {
-    @apply mx-auto max-w-4xl text-center text-4xl font-bold leading-tight tracking-[-1%] text-white sm:text-[50px] sm:leading-[76px];
+    @apply mx-auto max-w-5xl text-center text-4xl font-bold leading-tight tracking-[-1%] text-white sm:text-[50px] sm:leading-[76px];
   }
 
   h2 {
@@ -54,7 +48,7 @@
   }
 
   .wrapper {
-    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+    @apply px-5 py-10 xs:p-4 max-w-7xl mx-auto flex flex-col relative z-10;
   }
 
   .trending {
@@ -69,7 +63,7 @@
     }
 
     & ul li p {
-      @apply fancy-text mt-[22px] text-nowrap;
+      @apply fancy-text mt-[22px] text-nowrap ;
     }
 
     & ul li img {
@@ -94,7 +88,7 @@
   }
 
   .all-movies {
-    @apply space-y-9;
+    @apply space-y-5;
 
     & ul {
       @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
@@ -102,7 +96,7 @@
   }
 
   .movie-card {
-    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+    @apply bg-[#030e24] p-5 rounded-2xl shadow-inner shadow-light-100/10;
 
     & img {
       @apply rounded-lg h-auto w-full;
@@ -148,7 +142,7 @@
 }
 
 @utility fancy-text {
-  -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
+  -webkit-text-stroke: 5px rgba(50, 130, 255, 0.7);
   font-size: 190px;
   font-family: "Bebas Neue", sans-serif;
 }
