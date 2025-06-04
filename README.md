@@ -2,6 +2,9 @@
 
 A modern, responsive web application that allows users to explore the vast universe of movies. Built with React and powered by the TMDB API.
 
+## 🚀 Live Demo
+👉 [Check out the deployed app on Vercel](https://movieverse-drab.vercel.app)
+
 ### Home Page  
 <img src="public/UI_Screenshot1.png" width="500"/>
 
@@ -114,3 +117,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [React](https://reactjs.org/) for the amazing framework
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
 - [Vite](https://vitejs.dev/) for the build tool
+- [Vercel](https://vercel.com/) – for seamless deployment and hosting
