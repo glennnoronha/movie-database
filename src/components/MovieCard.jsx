@@ -1,11 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({
-  movie: { title, poster_path, release_date, original_language, vote_average, id },
-}) => {
+const MovieCard = ({ movie }) => {
+
+  const {
+    title,
+    poster_path,
+    release_date,
+    original_language,
+    vote_average,
+    id,
+    genre_ids,
+    overview,
+  } = movie; 
+
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={`/movie/${id}`} state={{movie}}>
       <div className="movie-card">
         {poster_path ? (
           <img
